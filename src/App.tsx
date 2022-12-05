@@ -6,9 +6,15 @@ function App() {
   const baseUrl = "http://localhost:3004/user";
 
   useEffect(() => {
-    axios.get(baseUrl).then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .get(baseUrl)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
   }, []);
 
   return (
