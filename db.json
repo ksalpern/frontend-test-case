@@ -1,0 +1,68 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Sam",
+      "lastName": "Smith",
+      "email": "test@gmail.com",
+      "work": "UI/UX designer",
+      "hobby": "Sports"
+    },
+    {
+      "id": 2,
+      "name": "Jasmine",
+      "lastName": "Ray",
+      "email": "testt@gmail.com",
+      "work": "React developer",
+      "hobby": "Sports"
+    },
+    {
+      "id": 3,
+      "name": "Melanie",
+      "lastName": "Martinez",
+      "email": "tesst@gmail.com",
+      "work": "Backend developer",
+      "hobby": "3d animation"
+    },
+    {
+      "id": 4,
+      "name": "Gary",
+      "lastName": "Johnson",
+      "email": "teest@gmail.com",
+      "work": "UI/UX designer",
+      "hobby": "Sports"
+    },
+    {
+      "id": 5,
+      "name": "Tery",
+      "lastName": "Willson",
+      "email": "tttest@gmail.com",
+      "work": "UI/UX designer",
+      "hobby": "Sports"
+    },
+    {
+      "id": 6,
+      "name": "Callie",
+      "lastName": "Davidson",
+      "email": "ttest@gmail.com",
+      "work": "UI/UX designer",
+      "hobby": "Sports"
+    },
+    {
+      "id": 7,
+      "name": "John",
+      "lastName": "Dorian",
+      "email": "trest@gmail.com",
+      "work": "UI/UX designer",
+      "hobby": "Sports"
+    },
+    {
+      "id": 8,
+      "name": "Lana",
+      "lastName": "Pay",
+      "email": "tjest@gmail.com",
+      "work": "UI/UX designer",
+      "hobby": "Sports"
+    }
+  ]
+}
