@@ -16,6 +16,17 @@ function App() {
   const [fetching, setFetching] = useState(true);
 
   const [modalShow, setModalShow] = useState(false);
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
 
   useEffect(() => {
     axios
@@ -54,7 +65,12 @@ function App() {
       </Button>
 
       {modalShow && (
-        <FormComponent show={modalShow} onHide={() => setModalShow(false)} />
+        <FormComponent
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          handleSubmit={() => handleSubmit}
+          validated={validated}
+        />
       )}
 
       <Table responsive>
