@@ -2910,7 +2910,7 @@ boolbase@^1.0.0, boolbase@~1.0.0:
 
 bootstrap@^5.2.3:
   version "5.2.3"
-  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.3.tgz"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.3.tgz#54739f4414de121b9785c5da3c87b37ff008322b"
   integrity sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==
 
 brace-expansion@^1.1.7:
@@ -7404,7 +7404,7 @@ react-app-polyfill@^3.0.0:
 
 react-bootstrap@^2.6.0:
   version "2.6.0"
-  resolved "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-2.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-2.6.0.tgz#bd125889cc9d2bbd7c89334a7c54980ff0a65b94"
   integrity sha512-WnDgN6PR8WZKo2Og5J8EafFi4BsABjc96lNuMNfksrgiPDCw18/woWQCNhAeHFZQWTQ/PijkOrQ9ncTWwO//AA==
   dependencies:
     "@babel/runtime" "^7.17.2"
