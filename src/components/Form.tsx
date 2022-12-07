@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -9,15 +9,56 @@ import Row from "react-bootstrap/Row";
 interface ModalProps {
   show: boolean;
   onHide: () => void;
-  handleSubmit: () => void;
-  validated: boolean;
-  description: string;
-  name: string;
-  email: string;
-  id: string;
+  getInputFormData: ({
+    id,
+    name,
+    email,
+    description,
+  }: {
+    id: string;
+    name: string;
+    email: string;
+    description: string;
+  }) => void;
 }
 
 const FormComponent: React.FC<ModalProps> = (props) => {
+  const [validated, setValidated] = useState(false);
+
+  const [id, setId] = useState<string>(``);
+  const [name, setName] = useState<string>(``);
+  const [email, setEmail] = useState<string>(``);
+  const [description, setDescription] = useState<string>(``);
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    props.getInputFormData({ id, name, email, description });
+    setValidated(true);
+  };
+
+  const submitName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const submitId = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setId(event.target.value);
+  };
+
+  const submitEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setEmail(event.target.value);
+  };
+
+  const submitDescr = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setDescription(event.target.value);
+    console.log(event.target.value);
+  };
+
   return (
     <>
       <Modal show={props.show} onHide={props.onHide}>
@@ -25,11 +66,7 @@ const FormComponent: React.FC<ModalProps> = (props) => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form
-            noValidate
-            validated={props.validated}
-            onSubmit={props.handleSubmit}
-          >
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Row className="mb-3">
               <Form.Group as={Col} md="4" controlId="validationCustom01">
                 <Form.Label>Id</Form.Label>
@@ -37,7 +74,8 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                   required
                   type="string"
                   placeholder="Id"
-                  // defaultValue="Mark"
+                  value={id}
+                  onChange={submitId}
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
@@ -47,6 +85,8 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                   required
                   type="text"
                   placeholder="Name"
+                  value={name}
+                  onChange={submitName}
                   // defaultValue="Mark"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -59,9 +99,26 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                   required
                   type="email"
                   placeholder="Email"
+                  value={email}
+                  onChange={submitEmail}
                   // defaultValue="test@gmail.co"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                {/* <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Username"
+                  aria-describedby="inputGroupPrepend"
+                  name="username"
+                  value={email}
+                  onChange={submitEmail}
+                  isInvalid={!!errors.username}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.username}
+                </Form.Control.Feedback>
+              </InputGroup> */}
               </Form.Group>
             </Row>
             <Row className="mb-4">
@@ -72,6 +129,8 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                   rows={3}
                   placeholder="Description"
                   required
+                  value={description}
+                  onChange={submitDescr}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid city.

@@ -16,37 +16,23 @@ function App() {
   const [fetching, setFetching] = useState(true);
 
   const [modalShow, setModalShow] = useState(false);
-  const [validated, setValidated] = useState(false);
+  const [newRow, setNewRow] = useState({});
 
-  const [id, setId] = useState<string>(``);
-  const [name, setName] = useState<string>(``);
-  const [email, setEmail] = useState<string>(``);
-  const [description, setDescription] = useState<string>(``);
+  // users.unshift(newRow);
 
-  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
-
-  const submitName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  };
-
-  const submitId = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setId(event.target.value);
-  };
-
-  const submitEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const submitDescr = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDescription(event.target.value);
+  const getInputFormData = ({
+    id,
+    name,
+    email,
+    description,
+  }: {
+    id: string;
+    name: string;
+    email: string;
+    description: string;
+  }): void => {
+    setNewRow({ id, name, email, description });
+    console.log(newRow);
   };
 
   useEffect(() => {
@@ -89,12 +75,7 @@ function App() {
         <FormComponent
           show={modalShow}
           onHide={() => setModalShow(false)}
-          handleSubmit={() => handleSubmit}
-          validated={validated}
-          id={id}
-          name={name}
-          email={email}
-          description={description}
+          getInputFormData={getInputFormData}
         />
       )}
 
