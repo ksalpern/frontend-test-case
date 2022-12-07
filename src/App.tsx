@@ -4,10 +4,8 @@ import "./App.css";
 import TableComponent from "./components/Table";
 import { Table } from "react-bootstrap";
 import { IUser } from "./types/types";
-
-// interface TotalCount {
-//   "set-cookie"?: string[] | undefined | number;
-// }
+import Button from "react-bootstrap/Button";
+import FormComponent from "./components/Form";
 
 function App() {
   //const baseUrl = "http://localhost:3004/user?_limit=30";
@@ -16,28 +14,24 @@ function App() {
   console.log(users);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
-  // const [totalCount, setTotalCount] = useState<TotalCount>(0);
+
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
-    // if (fetching) {
-      console.log("fetching");
-      axios
-        .get(
-          `https://jsonplaceholder.typicode.com/comments?_limit=35&_page=${currentPage}`
-        )
-        .then((res) => {
-          console.log(res.data);
-          setUsers([...users, ...res.data]);
-          // setCurrentPage((prevState) => prevState + 1);
-          // setTotalCount(res.headers);
-        })
+    axios
+      .get(
+        `https://jsonplaceholder.typicode.com/comments?_limit=35&_page=${currentPage}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setUsers([...users, ...res.data]);
+      })
 
-        // .catch(function (error) {
-        //   // handle error
-        //   console.log(error);
-        // })
-        .finally(() => setFetching(false));
-    // }
+      // .catch(function (error) {
+      //   // handle error
+      //   console.log(error);
+      // })
+      .finally(() => setFetching(false));
   }, [currentPage]);
 
   const scrollToEnd = () => {
@@ -53,25 +47,16 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   document.addEventListener("scroll", scrollHandler);
-  //   return function () {
-  //     document.removeEventListener("scroll", scrollHandler);
-  //   };
-  // }, []);
-
-  // const scrollHandler = (event: Event) => {
-  //   const target = event.target as HTMLTextAreaElement;
-  //   if (
-  //     target.scrollHeight - (target.scrollTop + window.innerHeight) < 100 &&
-  //     users.length < 500
-  //   ) {
-  //     setFetching(true);
-  //   }
-  // };
-
   return (
     <div className="app">
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+
+      {modalShow && (
+        <FormComponent show={modalShow} onHide={() => setModalShow(false)} />
+      )}
+
       <Table responsive>
         <thead>
           <tr>
