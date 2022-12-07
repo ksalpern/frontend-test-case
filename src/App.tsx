@@ -60,8 +60,8 @@ function App() {
 
   return (
     <div className="app">
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
+      <Button variant="dark" onClick={() => setModalShow(true)}>
+        Add user to the table
       </Button>
 
       {modalShow && (
@@ -78,10 +78,8 @@ function App() {
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Last Name</th>
             <th>Email</th>
-            <th>Work</th>
-            <th>hobby</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>

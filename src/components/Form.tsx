@@ -94,17 +94,11 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                 feedbackType="invalid"
               />
             </Form.Group>
-            <Button type="submit">Submit form</Button>
+            <Button type="submit" variant="dark">
+              Submit form
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={props.onHide}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

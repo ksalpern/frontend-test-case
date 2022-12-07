@@ -5,4 +5,6 @@ export interface IUser {
   email: string;
   work: string;
   hobby: string;
+  body: string;
+  postId: number;
 }
