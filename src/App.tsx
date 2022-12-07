@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        `https://jsonplaceholder.typicode.com/comments?_limit=35&_page=${currentPage}`
+        `https://jsonplaceholder.typicode.com/comments?_limit=20&_page=${currentPage}`
       )
       .then((res) => {
         console.log(res.data);
