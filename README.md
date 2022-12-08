@@ -1,6 +1,6 @@
 # Frontend test case
 
-Hey there! Here's a small application in React and Typescript. Endpoint is [here](https://jsonplaceholder.typicode.com/). Click [here](https://marvelous-alpaca-c7c5f9.netlify.app/) to see the app😃
+Hey there! Here's a small application in React and Typescript. Endpoint is [here](https://jsonplaceholder.typicode.com/). **Click [here](https://marvelous-alpaca-c7c5f9.netlify.app/) to see the app😃**
 
 ## What you can see in this app:
 
