@@ -3,7 +3,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 
 interface ModalProps {
@@ -87,7 +86,6 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                   placeholder="Name"
                   value={name}
                   onChange={submitName}
-                  // defaultValue="Mark"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
@@ -101,24 +99,8 @@ const FormComponent: React.FC<ModalProps> = (props) => {
                   placeholder="Email"
                   value={email}
                   onChange={submitEmail}
-                  // defaultValue="test@gmail.co"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                {/* <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                <Form.Control
-                  type="text"
-                  placeholder="Username"
-                  aria-describedby="inputGroupPrepend"
-                  name="username"
-                  value={email}
-                  onChange={submitEmail}
-                  isInvalid={!!errors.username}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.username}
-                </Form.Control.Feedback>
-              </InputGroup> */}
               </Form.Group>
             </Row>
             <Row className="mb-4">

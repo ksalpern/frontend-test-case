@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./App.css";
 import TableComponent from "./components/Table";
 import { Table } from "react-bootstrap";
 import { IUser } from "./types/types";
@@ -8,8 +7,6 @@ import Button from "react-bootstrap/Button";
 import FormComponent from "./components/Form";
 
 function App() {
-  //const baseUrl = "http://localhost:3004/user?_limit=30";
-
   const [users, setUsers] = useState<IUser[]>([]);
   console.log(users);
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,6 +49,8 @@ function App() {
       .finally(() => setFetching(false));
   }, [currentPage]);
 
+
+  //INFINITE SCROLL
   const scrollToEnd = () => {
     setCurrentPage(currentPage + 1);
   };
