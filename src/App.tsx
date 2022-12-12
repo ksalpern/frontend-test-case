@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TableComponent from "./components/Table";
-import { Table } from "react-bootstrap";
 import { IUser } from "./types/types";
 import Button from "react-bootstrap/Button";
 import FormComponent from "./components/Form";
@@ -49,7 +48,6 @@ function App() {
       .finally(() => setFetching(false));
   }, [currentPage]);
 
-
   //INFINITE SCROLL
   const scrollToEnd = () => {
     setCurrentPage(currentPage + 1);
@@ -78,19 +76,7 @@ function App() {
         />
       )}
 
-      <Table responsive>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <TableComponent users={users} />
-        </tbody>
-      </Table>
+      <TableComponent users={users} />
     </div>
   );
 }
